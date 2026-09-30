@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package customer;
+
+service CustomerService {
+  rpc GetCustomer (GetCustomerRequest) returns (GetCustomerResponse);
+  rpc GetMembershipDiscount (GetMembershipDiscountRequest) returns (GetMembershipDiscountResponse);
+}
+
+message GetCustomerRequest {
+  string uid = 1;
+}
+
+message GetCustomerResponse {
+  bool found = 1;
+  string uid = 2;
+  string fullname = 3;
+  string membership_id = 4;
+}
+
+message GetMembershipDiscountRequest {
+  string membership_id = 1;
+}
+
+message GetMembershipDiscountResponse {
+  double discount = 1;
+}
